@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>
+Fibonacci
+</title>
+</head>
+<body>
+<font size=5>
+<?PHP
+$varl = 0;
+$var2 = 1;
+$var3;
+$num = 10;
+echo($varl."<br/>");
+echo($var2."<br/>");
+for($i=3; $i <= $num;$i++)
+{
+$var3 = $varl + $var2;
+$varl = $var2;
+$var2 = $var3;
+echo($var3."<br />");
+}
+?>
+</font>
+</body>
+</html>
