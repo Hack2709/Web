@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Reverse Number</title>
+</head>
+<body>
+<?php
+$a = 0;
+$no = 123;
+$b = $no;
+$temp = 0;
+while ($no > 0) {
+$a = $no % 10;
+$no = (int)($no / 10); // Casting to int to avoid floating point issues
+$temp = $temp * 10 + $a;
+}
+echo $temp;
+?>
+</body>
+</html>
