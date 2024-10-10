@@ -1,0 +1,59 @@
+<font size=5>
+
+<?php
+
+$con = mysqli_connect("localhost", "root", "", "myclass") or die(mysqli_connect_error());
+
+echo "Connection Successful<br>";
+
+echo "Connected to database<br>";
+
+mysqli_query($con, "CREATE TABLE IF NOT EXISTS department (dno INT PRIMARY KEY, dname VARCHAR(20));");
+
+echo "Table created<br>";
+
+mysqli_query($con, "INSERT INTO department VALUES (1, 'Stat');");
+mysqli_query($con, "INSERT INTO department VALUES (2, 'Computer');");
+mysqli_query($con, "INSERT INTO department VALUES (3, 'Maths');");
+
+mysqli_query($con, "CREATE TABLE IF NOT EXISTS students (mo INT PRIMARY KEY, name VARCHAR(50), dob DATE);");
+mysqli_query($con, "INSERT INTO students VALUES (2, 'Supriya', '1990-11-21');");
+mysqli_query($con, "INSERT INTO students VALUES (3, 'Priya', '1989-10-30');");
+
+echo "Inserted into table<br>";
+
+$result = mysqli_query($con, "SELECT * FROM students;");
+
+echo "<br>";
+echo "<table border=1>";
+echo "<tr>
+<th>Roll no</th>
+<th>Name</th>
+<th>B'date</th>
+</tr>";
+
+while ($row = mysqli_fetch_array($result)) {
+    echo "<tr><td>" . $row['mo'] . "</td>";
+    echo "<td>" . $row['name'] . "</td>";
+    echo "<td>" . $row['dob'] . "</td></tr>";
+}
+
+echo "</table><br>";
+
+$resultl = mysqli_query($con, "SELECT * FROM department;");
+
+echo "<table border='1'>";
+echo "<tr><th>Deptno</th><th>DeptName</th></tr>";
+
+while ($rowl = mysqli_fetch_array($resultl)) {
+    echo "<tr><td>" . $rowl['dno'] . "</td>";
+    echo "<td>" . $rowl['dname'] . "</td></tr>";
+}
+
+echo "</table><br>";
+
+mysqli_close($con);
+
+echo "Connection closed<br>";
+
+?>
