@@ -1,0 +1,17 @@
+<?php
+session_start(); // Starts the session
+// Set session variables
+$_SESSION["uname"] = "JohnDoe"; // Example username
+$_SESSION["fcolor"] = "blue"; // Example favorite color
+?>
+<!DOCTYPE html>
+<html>
+<body>
+<font size=5>
+<?php
+echo "User name is ".$_SESSION["uname"].".<br>"; echo "Favorite color is
+".$_SESSION["fcolor"].".";
+?>
+</font>
+</body>
+</html>
