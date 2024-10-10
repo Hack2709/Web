@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AJAX-Fetching Data On Mouse Hover</title>
+
+<style type="text/css">
+
+.img {
+
+height: 40%;
+
+}
+
+</style>
+
+<script>
+
+var XMLHttpRequestObject = false;
+
+if (window.XMLHttpRequest) {
+
+XMLHttpRequestObject = new XMLHttpRequest(); }
+
+else if (window.ActiveXObject) {
+
+XMLHttpRequestObject = new
+
+ActiveXObject("Microsoft.XMLHTTP"); }
+
+function getData(dataSource, divID) {
+
+if(XMLHttpRequestObject) {
+
+var obj = document.getElementById(divID);
+
+XMLHttpRequestObject.open("GET", dataSource);
+
+XMLHttpRequestObject.onreadystatechange =
+
+function(){
+
+if (XMLHttpRequestObject.readyState == 4 &&
+
+XMLHttpRequestObject.status == 200) {
+
+XMLHttpRequestObject.responseText;
+
+}
+
+}
+
+obj.innerHTML =
+
+XMLHttpRequestObject.send(null);
+
+}
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1 style="text-align:center;">Fetching data with
+
+Ajax</h1>
+
+<form>
+<img class="img" src="C:\Users\sings\OneDrive\Desktop\pizza"
+onmouseover="getData('data/soup.txt', 'targetDiv')">
+
+<img class="img" src="C:\Users\sings\OneDrive\Desktop\soup"
+
+onmouseover="getData('data/pizza.txt', 'targetDiv')">
+
+<input type="button"
+
+onmouseclick="getData('data/sandwiches.txt','targetDiv')">
+
+</form>
+
+<h1 style="text-align:center;">
+
+<div id="targetDiv">
+
+<h1>The fetched data will go here.</h1>
+
+</div>
+
+<h1>
+
+</body>
+
+</html>
